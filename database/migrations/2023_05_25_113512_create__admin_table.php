@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTimeInsTable extends Migration
+class CreateAdminTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateTimeInsTable extends Migration
      */
     public function up()
     {
-        Schema::create('time_ins', function (Blueprint $table) {
+        Schema::create('_admin', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->timestamps('time_in');
+            $table->string('password');
+            $table->string('email');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateTimeInsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('time_ins');
+        Schema::dropIfExists('_admin');
     }
 }

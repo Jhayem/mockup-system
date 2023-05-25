@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTimeOutsTable extends Migration
+class CreateLogInTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateTimeOutsTable extends Migration
      */
     public function up()
     {
-        Schema::create('time_outs', function (Blueprint $table) {
+        Schema::create('_log_in', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->timestamps('time_out');
+            $table->string('password');
+            $table->string('email');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateTimeOutsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('time_outs');
+        Schema::dropIfExists('_log_in');
     }
 }
